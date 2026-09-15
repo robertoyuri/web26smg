@@ -1,0 +1,26 @@
+Instalar python
+Instalar Pycharm ou outra IDE
+
+criar a venv
+python -m venv nome_da_venv
+
+Entrar na venv
+source venv/bin/activate (UNIX)
+venv/Scripts/activate.bat (Windows)
+
+Instalar Django
+pip install django
+
+Criar projeto django
+django-admin startproject nome_do_projeto_de_voces
+
+Entrar na pasta do projeto
+cd nome_do_projeto_de_voces
+
+Rodar o servidor de desenvolvimento
+python manage.py runserver
+
+Criar a aplicação
+python manage.py startapp nome_do_modulo_de_voces
+
+Colocar em INSTALLED_APPS o nome da aplicação de vocês
