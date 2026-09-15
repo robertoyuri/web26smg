@@ -1,3 +1,25 @@
 from django.db import models
 
-# Create your models here.
+class Paciente(models.Model):
+    nome = models.CharField(max_length=100)
+    cpf = models.CharField(max_length=11)
+    convenio = models.CharField(blank=True, null=True,max_length=100)
+    telefone = models.CharField(max_length=20)
+    email = models.CharField(max_length=100, blank=True, null=True)
+    nascimento = models.DateField()
+
+class Medico(models.Model):
+    nome = models.CharField(max_length=100)
+    crm = models.CharField(max_length=10)
+    uf_crm = models.CharField(max_length=2)
+    especialidade = models.CharField(max_length=50)
+    telefone = models.CharField(max_length=20)
+    email = models.CharField(max_length=100, blank=True, null=True)
+
+class Consulta(models.Model):
+    data = models.DateTimeField()
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
+    medico = models.ForeignKey(Medico, on_delete=models.CASCADE)
+    prontuario = models.TextField(blank=True, null=True)
+    consultorio = models.CharField(max_length=10, blank=True, null=True)
+

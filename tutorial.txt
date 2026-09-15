@@ -4,7 +4,7 @@ Instalar Pycharm ou outra IDE
 criar a venv
 python -m venv nome_da_venv
 
-Entrar na venv
+Entrar na venv (Verificar se está na pasta raiz da venv)
 source venv/bin/activate (UNIX)
 venv/Scripts/activate.bat (Windows)
 
@@ -24,3 +24,22 @@ Criar a aplicação
 python manage.py startapp nome_do_modulo_de_voces
 
 Colocar em INSTALLED_APPS o nome da aplicação de vocês
+
+Criar a pasta templates na raiz do projeto
+Cadastrar pasta criada no arquivo settings.py
+
+Prepara as migração do modelo de dados para o banco de dados relacional
+python manage.py makemigrations
+
+aplica o modelo de dados no banco de dados
+python manage.py migrate
+
+cria o super usuário no banco de dados
+python manage.py createsuperuser
+
+Fazer a modelagem de dados no arquivo models.py
+prepara modelagem de dados com makemigrations
+aplicar modelo com migrate
+
+
+
