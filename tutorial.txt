@@ -41,5 +41,18 @@ Fazer a modelagem de dados no arquivo models.py
 prepara modelagem de dados com makemigrations
 aplicar modelo com migrate
 Registrar classes de modelo no admin.py
+Criar arquivo urls.py para cada modulo
+
+Configurar arquivos estaticos (CSS, JS, Imagens):
+criar a pasta static na raiz do projeto
+instalar biblioteca dj_static
+pip install dj_static
+adicionar Cling e MediaCling no asgi e wsgi
+configurar STATIC_ROOT
+Configurar STATICFILES_DIRS
+
+Coletar arquivos estaticos
+python manage.py collectstatic
+
 
 
