@@ -1,0 +1,58 @@
+{% extends "menu.html" %}
+{% load static %}
+
+{% block titulo %}Cadastrar Paciente{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <br>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addonNome">Nome</span>
+            <input type="text" class="form-control" name="nome" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addonNome">
+        </div>
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addonCPF">CPF</span>
+                <input type="text" class="form-control" name="cpf" placeholder="CPF" aria-label="CPF" aria-describedby="basic-addonCPF">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addonConvenio">Convenio</span>
+                <input type="text" class="form-control" name="convenio" placeholder="Convenio" aria-label="Convenio" aria-describedby="basic-addonConvenio">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addonTelefone">Telefone</span>
+                <input type="text" class="form-control" name="telefone" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addonTelefone">
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addonEmail">
+                    <span class="input-group-text" id="basic-addonEmail">@example.com</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <input type="date" class="form-control" name="nascimento" placeholder="Nascimento" aria-label="Nascimento" aria-describedby="basic-addonNascimento">
+                    <span class="input-group-text" id="basic-addonNascimento">DD/MM/AAAA</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "menu.html" %}
+{% load static %}
+
+{% block titulo %}Listar Pacientes{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Convenio</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Nascimento</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Hugo Neto</td>
+            <td>062.123.572-73</td>
+            <td>Unimed</td>
+            <td>(91) 91234-5679</td>
+            <td>hugo@gmail.com</td>
+            <td>20/10/1994</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

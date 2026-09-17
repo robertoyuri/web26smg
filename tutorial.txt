@@ -47,12 +47,14 @@ Configurar arquivos estaticos (CSS, JS, Imagens):
 criar a pasta static na raiz do projeto
 instalar biblioteca dj_static
 pip install dj_static
-adicionar Cling e MediaCling no asgi e wsgi
+adicionar Cling no asgi e wsgi
 configurar STATIC_ROOT
 Configurar STATICFILES_DIRS
 
 Coletar arquivos estaticos
 python manage.py collectstatic
 
+Criar os HTMLs
+Criar as Views
 
 
