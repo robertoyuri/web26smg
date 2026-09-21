@@ -17,20 +17,27 @@
             <th scope="col">Telefone</th>
             <th scope="col">E-mail</th>
             <th scope="col">Nascimento</th>
+            <th scope="col">Ações</th>
         </tr>
         </thead>
+        {% for paciente in pacientes %}
         <tbody>
         <tr>
-            <th scope="row">1</th>
-            <td>Hugo Neto</td>
-            <td>062.123.572-73</td>
-            <td>Unimed</td>
-            <td>(91) 91234-5679</td>
-            <td>hugo@gmail.com</td>
-            <td>20/10/1994</td>
+            <th scope="row">{{ paciente.id }}</th>
+            <td>{{ paciente.nome }}</td>
+            <td>{{ paciente.cpf }}</td>
+            <td>{{ paciente.convenio }}</td>
+            <td>{{ paciente.telefone }}</td>
+            <td>{{ paciente.email }}</td>
+            <td>{{ paciente.nascimento }}</td>
+            <td>
+                <a href="{% url 'app:paciente_edit' paciente.id %}"><img src="{% static 'img/edit.png' %}" style="height: 30px"></a>
+                <a href="{% url 'app:paciente_delete' paciente.id %}"><img src="{% static 'img/del.png' %}" style="height: 30px"></a>
+            </td>
         </tr>
 
         </tbody>
+        {% endfor %}
     </table>
 </div>
 
