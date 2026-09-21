@@ -26,12 +26,39 @@ Google</a>
     <input type="text" id="name" name="name" placeholder="Digite seu nome"/>
     <input type="radio" id="male" name="gender" value="male" />
     <label for="male">Masculino</label>
-    <input type="checkbox" id="female" name="gender" value="female" />
+    <input type="checkbox" id="female" name="gender" value="female" onclick="verSenha()"/>
     <label for="female">Feminino</label>
     <input type="password" id="password" name="password" placeholder="Digite sua senha" />
     <input type="submit" value="Enviar" />
 </form>
 </div>
+<script type="application/javascript">
+    var nome = "Roberto";
+    let sobrenome = "Franco";
+
+    if (nome === 'Roberto') {
+        console.log(nome + ' ' + sobrenome);
+    }
+
+    for (let i = 0; i < nome.length; i++) {
+        console.log(nome[i]);
+    }
+
+    while (true) {
+        console.log(nome);
+        break;
+    }
+
+    console.log(document.body.innerHTML);
+    let pass = document.getElementsByName('password').value;
+    console.log(pass);
+
+    function verSenha(){
+        let senha = document.getElementById('password').value;
+        console.log(senha);
+    }
+</script>
+<script type="application/javascript" src="{% static 'js/script.js' %}"/>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
