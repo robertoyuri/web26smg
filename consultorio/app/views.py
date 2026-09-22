@@ -1,9 +1,6 @@
-from gc import get_objects
-
-from django.shortcuts import render, redirect
-from.models import Paciente
-
-
+from django.shortcuts import render, redirect, get_object_or_404
+from.models import Paciente, Medico
+from .forms import MedicoForm
 # Create your views here.
 
 def home(request):
@@ -57,3 +54,37 @@ def paciente_delete(request, pk):
         paciente = Paciente.objects.get(pk=pk)
         paciente.delete()
         return redirect('app:paciente_list')
+
+def medico_form(request):
+    form = MedicoForm(request.POST, request.FILES)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('app:medico_list')
+    return render(request, 'medico_form.html', {'form': form})
+
+def medico_list(request):
+    medicos = Medico.objects.all()
+    return render(request, 'medico_list.html',
+                  {'medicos': medicos})
+
+def medico_edit(request, pk):
+    medico = None
+    if pk:
+        medico = get_object_or_404(Medico, pk=pk)
+    if request.method == 'POST':
+        form = MedicoForm(request.POST, request.FILES, instance=medico)
+        if form.is_valid():
+            form.save()
+            return redirect('app:medico_list')
+    else:
+        form = MedicoForm(instance=medico)
+
+    return render(request, 'medico_form.html', {'form': form})
+
+def medico_delete(request, pk):
+    if pk:
+        medico = get_object_or_404(Medico, pk=pk)
+        medico.delete()
+        return redirect('app:medico_list')
+    return render(request, 'medico_form.html')

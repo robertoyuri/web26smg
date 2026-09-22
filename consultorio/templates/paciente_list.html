@@ -32,7 +32,7 @@
             <td>{{ paciente.nascimento }}</td>
             <td>
                 <a href="{% url 'app:paciente_edit' paciente.id %}"><img src="{% static 'img/edit.png' %}" style="height: 30px"></a>
-                <a href="{% url 'app:paciente_delete' paciente.id %}"><img src="{% static 'img/del.png' %}" style="height: 30px"></a>
+                <a id="data" data-bs-toggle="modal", onclick="deletePaciente('{{ paciente.nome }}', '{{ paciente.id }}');" data-bs-target="#exampleModal"><img src="{% static 'img/del.png' %}" style="height: 30px"></a>
             </td>
         </tr>
 
@@ -40,5 +40,31 @@
         {% endfor %}
     </table>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="conteudo" class="modal-body">
+                Deseja realmente excluir os registros do paciente?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <a id="link" href="#" class="btn btn-danger">Excluir</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function deletePaciente(nome, id){
+        console.log(id, nome);
+        document.getElementById('link').setAttribute('href',"/paciente/deletar/" +id);
+        document.getElementById('conteudo').innerText = "Deseja realmente excluir os registros do paciente " + nome + "?"
+    }
+</script>
 
 {% endblock %}

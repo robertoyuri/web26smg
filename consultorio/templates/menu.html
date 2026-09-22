@@ -34,9 +34,9 @@
             Medico
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarMedico">
-            <li><a class="dropdown-item" href="#">Cadastrar</a></li>
+            <li><a class="dropdown-item" href="{% url 'app:medico_form' %}">Cadastrar</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Listar</a></li>
+            <li><a class="dropdown-item" href="{% url 'app:medico_list' %}">Listar</a></li>
           </ul>
         </li>
 

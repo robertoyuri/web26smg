@@ -1,0 +1,44 @@
+{% extends "menu.html" %}
+{% load static %}
+
+{% block titulo %}Listar Médicos{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CRM</th>
+            <th scope="col">UF</th>
+            <th scope="col">Especialidade</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Ações</th>
+        </tr>
+        </thead>
+        {% for medico in medicos %}
+        <tbody>
+        <tr>
+            <th scope="row">{{ medico.id }}</th>
+            <td>{{ medico.nome }}</td>
+            <td>{{ medico.crm }}</td>
+            <td>{{ medico.uf_crm }}</td>
+            <td>{{ medico.especialidade }}</td>
+            <td>{{ medico.telefone }}</td>
+            <td>{{ medico.email }}</td>
+            <td>
+                <a href="{% url 'app:medico_edit' medico.id %}"><img src="{% static 'img/edit.png' %}" style="height: 30px"></a>
+                <a href="{% url 'app:medico_delete' medico.id %}" onclick="return confirm('Deseja realmente excluir o médico {{ medico.nome }}?')"><img src="{% static 'img/del.png' %}" style="height: 30px"></a>
+            </td>
+        </tr>
+
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
